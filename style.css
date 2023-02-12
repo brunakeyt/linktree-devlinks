@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --txtcolor:white;
+    --bgcolor: url(./img/mobile-fundo-dark.jpg);
+    --bgbutton: rgba(255, 255, 255, 0.15); /*0.0 é a transparência mais alta, 1.0 é sem nenhuma transparência*/
+    --bgbuttonhover: rgba(255, 255, 255, 0.05);
+    --socialhover: rgba(255, 255, 255, 0.15);
+    --switch-bg-url: url(./file/moon-stars.svg);
+}
+.light{
+    --txtcolor:black;
+    --bgcolor: url(./img/mobile-fundo-light.jpg);
+    --bgbutton: rgba(0, 0, 0, 0.15);
+    --bgbuttonhover: rgba(0, 0, 0, 0.05);
+    --socialhover: rgba(0, 0, 0, 0.15);
+    --switch-bg-url: url(./file/sun.svg);
+}
+/*media queries (midia quaris)*/
+@media (min-width: 800px){
+    /*a partir de 800px
+    só funciona com <meta name="viewport" content="width=device-width, initial-scale=1.0"> dentro do head
+    */
+    :root{
+        --bgcolor: url(./img/desktop-fundo-dark.jpg);
+    }   
+    .light{
+        --bgcolor: url(./img/desktop-fundo-light.jpg);
+    }
+}
+
+body{
+    background: var(--bgcolor) no-repeat top center/cover;
+    height: 100vh;
+    width: 100vw; /*viewport width - tamanho da tela*/
+    box-sizing: border-box;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color:var(--txtcolor);
+}
+
+#container{
+    width: 90%;
+    max-width: 600px;
+    height: 712px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+}
+
+#profile{
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img{
+    width: 112px;
+}
+
+#profile p{
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 4px  auto;
+}
+
+#switch button{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    position: absolute; /*posição fixa relativa ao switch*/
+    z-index: 1; /*posição no andar 1, oq deixou ele por cima do span q ainda está no 0*/
+    
+    /*de alguma forma as medidas abaixo servem pra centralização no eixo vertical (eixo y)
+    poderia ser tb:
+    transform: translateY(50%); top: 50%;
+    para a horizontal seriam usados left ou right e translateX*/
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+}
+
+.light #switch button{
+    right: 0;
+    left: initial; /*left indefinido*/
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--bgbutton);
+    border: 1px solid var(--txtcolor);
+    border-radius: 9999px;
+}
+ 
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a {
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    display:flex; /*faz com que os elementos a tenham o msm tam q os elementos li*/
+    background: var(--bgbutton); 
+    border-radius: 8px;
+    border: 1px solid var(--txtcolor);
+    backdrop-filter: blur(4px); /*embaçado*/
+    -webkit-backdrop-filter: blur(4px); /*embaçado para navegadores menos atuais*/
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.5s; /*elemento em que deseja fazer a transição e tempo de transição*/
+}
+
+ul li a:hover{
+    background: var(--bgbuttonhover);
+    border: 2px solid var(--txtcolor);
+}
+
+#social{
+    padding: 24px 0;
+    justify-content: center;
+    display: flex;
+    font-size: 35px;
+    align-items: center;
+}
+#social a{
+    padding: 16px 16px 12px;
+    border-radius: 50%;
+    transition: background 0.5s;
+}
+#social a:hover{
+    background: var(--socialhover);
+}
+
+footer{
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer ion-icon{
+    padding: 0 5px;
+}
