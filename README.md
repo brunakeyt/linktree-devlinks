@@ -17,6 +17,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O DevLinks é um agregador de links para usar como cartão de visitas online.
 
-- [Acesse o projeto, online](https://brunakeyt.github.io/linktree-devlinks)
+- [Acesse o projeto online](https://brunakeyt.github.io/linktree-devlinks)
 
 OBS: os links não levam a lugar algum no momento
